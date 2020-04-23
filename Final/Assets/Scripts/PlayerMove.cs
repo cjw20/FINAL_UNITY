@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 movement;
     public Animator animator;
+    public GameObject Crosshair;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,4 +29,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    
 }
