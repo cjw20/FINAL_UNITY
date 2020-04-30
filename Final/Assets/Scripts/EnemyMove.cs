@@ -48,7 +48,7 @@ public class EnemyMove : MonoBehaviour
             difference.x = target.position.x - rb.position.x;
             difference.y = target.position.y - rb.position.y;
             difference.Normalize();
-            //rb.AddForce(difference * knockbackPow);
+           
             
 
         }
@@ -57,6 +57,10 @@ public class EnemyMove : MonoBehaviour
         if (house != null)
         {
             house.TakeDamage(damage);
+            knockedBack = true;
+            difference.x = target.position.x - rb.position.x;
+            difference.y = target.position.y - rb.position.y;
+            difference.Normalize();
         }
     }
     public void TakeDamage (int damage)
