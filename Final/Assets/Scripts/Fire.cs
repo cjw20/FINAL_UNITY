@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    public int damage = 5;
     void Start()
     {
         //Destory(gameObject, 5f);
     }
-    void OnTriggerEnter2D(Collider2D hit)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Enemy enemy = hit.GetComponent<Enemy>();
+            
+        
+        EnemyMove enemy = hitInfo.GetComponent<EnemyMove>();
         if(enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(damage);
         }
+        
         Destroy(gameObject);
     }
 }
