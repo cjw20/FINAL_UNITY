@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 1517110442}
   - component: {fileID: 1517110441}
   - component: {fileID: 1517110445}
+  - component: {fileID: 1517110446}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -591,6 +592,7 @@ MonoBehaviour:
   fireball: {fileID: 8680242851612425504, guid: ba0d012cd298e4f43a7ff3ec347def15,
     type: 3}
   spellForce: 3
+  playerHealth: 10
 --- !u!50 &1517110442
 Rigidbody2D:
   serializedVersion: 4
@@ -695,6 +697,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &1517110446
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517110440}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0031622848, y: -0.0442729}
+  m_Size: {x: 0.1745317, y: 0.23145422}
+  m_Direction: 0
 --- !u!1 &1893888701
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class PlayerMove : MonoBehaviour
     public float spellForce = 15f;
     float fireballCasts = 0f;
 
+    public int playerHealth = 10;
+
 
     void Start()
     {
@@ -54,4 +56,18 @@ public class PlayerMove : MonoBehaviour
         
     }
 
+
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+        if (playerHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 }
