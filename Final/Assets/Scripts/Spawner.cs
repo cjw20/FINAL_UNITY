@@ -5,13 +5,13 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject EnemyA;
-    public GameObject EnemyB;
+    
     public Transform[] spawnPoints;
     int spawnLoc;
     void Start()
     {
-        InvokeRepeating("SpawnA",1f,1f);
-        InvokeRepeating("SpawnB", 1f, 1f);
+        InvokeRepeating("SpawnA",1f,3f);
+        InvokeRepeating("SpawnB", 20f, 5f);
     }
 
     
@@ -23,6 +23,6 @@ public class Spawner : MonoBehaviour
     void SpawnB()
     {
         spawnLoc = Random.Range(0, 5);
-        Instantiate(EnemyB, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
+        Instantiate(EnemyA, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
     }
 }

@@ -93,5 +93,6 @@ public class PlayerMove : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        FindObjectOfType<GameManager>().EndGame();
     }
 }
