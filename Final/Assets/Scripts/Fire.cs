@@ -5,9 +5,9 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public int damage = 5;
-    void Start()
+    void Awake()
     {
-        //Destory(gameObject, 5f);
+        Destroy(gameObject, 5f);
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
