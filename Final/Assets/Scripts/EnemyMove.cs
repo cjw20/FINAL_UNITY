@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public Transform target;
+    GameObject chosenTarget;
+    Transform target;
     public float moveSpeed = 2f;
     public Rigidbody2D rb;
     public int health = 10;
@@ -13,7 +14,17 @@ public class EnemyMove : MonoBehaviour
     public float knockbackPow = 5f;
     bool knockedBack = false;
     public float knockTime = .5f;
+    
 
+    
+    
+    void Start()
+    {
+        
+        chosenTarget = GameObject.Find("House");    
+        target = chosenTarget.transform;
+    }
+    
     void FixedUpdate()
     {
         if(knockedBack == false)

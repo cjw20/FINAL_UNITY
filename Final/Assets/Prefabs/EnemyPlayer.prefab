@@ -163,10 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bffec9f572dc24298ea8b4a9fffa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   moveSpeed: 2
   rb: {fileID: 4446957094777688599}
   health: 10
   damage: 3
-  knockbackPow: -2
+  knockbackPow: -5
   knockTime: 0.5
