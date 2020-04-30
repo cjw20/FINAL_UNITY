@@ -10,15 +10,26 @@ public class EnemyMove : MonoBehaviour
     public int health = 10;
     public int damage = 3;
     Vector2 difference; //angle for knockback
-    public float knockbackPow = 500f;
-    bool knockedback = false;
-
+    public float knockbackPow = 50f;
+    bool knockedBack = false;
+    public float knockTime = .5f;
 
     void FixedUpdate()
     {
-        
+        if(knockedBack == false)
+        {
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-
+        }
+            
+        if(knockedBack == true)
+        {
+            knockTime -= Time.deltaTime;
+            if(knockTime <= 0)
+            {
+                knockedBack = false;
+                knockTime = .5f;
+            }
+        }
         
     }
 
@@ -32,6 +43,7 @@ public class EnemyMove : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damage);
+            knockedBack = true;
             difference.x = target.position.x - rb.position.x;
             difference.y = target.position.y - rb.position.y;
             difference.Normalize();
