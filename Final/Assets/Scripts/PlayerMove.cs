@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour
         HealthBar.SetMaxHealth(maxHealth);
         maxMana = mana;
         manaBar.SetMaxMana(maxMana);
+        InvokeRepeating("Regen", 0f, 1f);
     }
 
     // Update is called once per frame
@@ -60,6 +61,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+       
     }
     void CastFire()
     {
@@ -67,6 +69,14 @@ public class PlayerMove : MonoBehaviour
         Rigidbody2D rb = firespell.GetComponent<Rigidbody2D>();
         rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
         
+    }
+    void Regen()
+    {
+        if (mana < maxMana)
+        {
+            mana += 10;
+            manaBar.SetMana(mana);
+        }
     }
 
 
