@@ -51,7 +51,7 @@ public class PlayerMove : MonoBehaviour
         GameObject firespell = Instantiate(fireball, spellOrigin.position, spellOrigin.rotation);
         Rigidbody2D rb = firespell.GetComponent<Rigidbody2D>();
         rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
-        Debug.Log(targetDir);
+        
     }
 
 }

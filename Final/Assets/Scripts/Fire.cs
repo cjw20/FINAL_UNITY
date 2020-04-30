@@ -8,8 +8,13 @@ public class Fire : MonoBehaviour
     {
         //Destory(gameObject, 5f);
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D hit)
     {
+        Enemy enemy = hit.GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            enemy.TakeDamage();
+        }
         Destroy(gameObject);
     }
 }
