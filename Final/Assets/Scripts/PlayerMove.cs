@@ -19,11 +19,16 @@ public class PlayerMove : MonoBehaviour
     public int playerHealth = 10;
     public int maxHealth;
     public HealthBar HealthBar;
+    public int mana = 100;
+    public int maxMana;
+    public HealthBar manaBar;
 
     void Start()
     {
         maxHealth = playerHealth;
         HealthBar.SetMaxHealth(maxHealth);
+        maxMana = mana;
+        manaBar.SetMaxMana(maxMana);
     }
 
     // Update is called once per frame
@@ -41,8 +46,14 @@ public class PlayerMove : MonoBehaviour
         targetDir.Normalize();
         if (Input.GetKeyDown("e"))
         {
-            fireballCasts++;
-            CastFire();
+            if(mana >= 10)
+            {
+                fireballCasts++;
+                mana -= 10;
+                manaBar.SetMana(mana);
+                CastFire();
+            }
+            
         }
 
     }
