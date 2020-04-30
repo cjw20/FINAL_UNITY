@@ -30,4 +30,15 @@ public class HealthBar : MonoBehaviour
         slider.value = mana;
     }
 
+    public void SetMaxHouse(int hp)
+    {
+        slider.maxValue = hp;
+        slider.value = hp;
+    }
+
+    public void SetHouse(int hp)
+    {
+        slider.value = hp;
+    }
+
 }
