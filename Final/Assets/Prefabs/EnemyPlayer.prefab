@@ -165,4 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   moveSpeed: 2
+  rb: {fileID: 4446957094777688599}
   health: 10
+  damage: 3

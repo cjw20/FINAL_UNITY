@@ -6,14 +6,20 @@ public class EnemyMove : MonoBehaviour
 {
     public Transform target;
     public float moveSpeed = 2f;
-    
+    public Rigidbody2D rb;
     public int health = 10;
     public int damage = 3;
+    Vector2 difference; //angle for knockback
+    public float knockbackPow = 500f;
+    bool knockedback = false;
 
 
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        
+            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+
+        
     }
 
 
@@ -26,6 +32,12 @@ public class EnemyMove : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damage);
+            difference.x = target.position.x - rb.position.x;
+            difference.y = target.position.y - rb.position.y;
+            difference.Normalize();
+            rb.AddForce(difference * knockbackPow);
+            
+
         }
 
         House house = hitInfo.GetComponent<House>();

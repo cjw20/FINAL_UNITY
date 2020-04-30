@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
         mPos = camera.ScreenToWorldPoint(Input.mousePosition);
         targetDir = mPos - rb.position;
-
+        targetDir.Normalize();
         if (Input.GetKeyDown("e"))
         {
             fireballCasts++;
