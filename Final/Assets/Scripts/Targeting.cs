@@ -5,9 +5,18 @@ using UnityEngine;
 public class Targeting : MonoBehaviour
 {
 
-    private Vector2 mousePosition;
-    private float moveSpeed = 10f;
-    public GameObject Crosshair;
+    public Texture2D Crosshair;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+    void OnMouseEnter()
+    {
+        Cursor.SetCursor(Crosshair, hotSpot, cursorMode);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +28,5 @@ public class Targeting : MonoBehaviour
     {
         
     }
-    void FixedUpdate()
-    {
-        mousePosition = Input.mousePosition;
-        if(Crosshair.transform =!mousePosition)
-        {
-            Crosshair.transform = mousePosition;
-        }    
-        
-    }
+ 
 }

@@ -7,9 +7,13 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 4f;
     public Rigidbody2D rb;
     Vector2 movement;
+   // Vector2 mPos;
     public Animator animator;
-    public GameObject Crosshair;
-    // Start is called before the first frame update
+  
+   // public Camera camera;
+    //public Vector2 targetDir;
+   
+
     void Start()
     {
         
@@ -24,6 +28,11 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+       // mPos = camera.ScreenToWorldPoint(Input.mousePosition);
+       // Vector2 targetDir = mPos - rb.position;
+
+
     }
     void FixedUpdate()
     {
