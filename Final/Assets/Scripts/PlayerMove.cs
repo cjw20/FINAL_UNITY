@@ -17,11 +17,13 @@ public class PlayerMove : MonoBehaviour
     float fireballCasts = 0f;
 
     public int playerHealth = 10;
-
+    public int maxHealth;
+    public HealthBar HealthBar;
 
     void Start()
     {
-        
+        maxHealth = playerHealth;
+        HealthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class PlayerMove : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerHealth -= damage;
+        HealthBar.SetHealth(playerHealth);
         if (playerHealth <= 0)
         {
             Die();
