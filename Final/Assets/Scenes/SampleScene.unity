@@ -591,7 +591,7 @@ MonoBehaviour:
   spellOrigin: {fileID: 463676621}
   fireball: {fileID: 8680242851612425504, guid: ba0d012cd298e4f43a7ff3ec347def15,
     type: 3}
-  spellForce: 3
+  spellForce: 6
   playerHealth: 10
 --- !u!50 &1517110442
 Rigidbody2D:
@@ -872,6 +872,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1517110444}
+    - target: {fileID: 6910679913799329281, guid: 33e4f8c85e0dedc43b155f1b9b9b2970,
+        type: 3}
+      propertyPath: knockbackPow
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910679913799329281, guid: 33e4f8c85e0dedc43b155f1b9b9b2970,
+        type: 3}
+      propertyPath: knockTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7342930851566275283, guid: 33e4f8c85e0dedc43b155f1b9b9b2970,
         type: 3}
       propertyPath: m_Name
@@ -951,5 +961,15 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 121341990}
+    - target: {fileID: 7691690983216450220, guid: cd581aeabd691e249889684a9144692d,
+        type: 3}
+      propertyPath: knockTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691690983216450220, guid: cd581aeabd691e249889684a9144692d,
+        type: 3}
+      propertyPath: knockbackPow
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd581aeabd691e249889684a9144692d, type: 3}

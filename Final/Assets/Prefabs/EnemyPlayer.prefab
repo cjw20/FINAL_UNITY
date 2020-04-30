@@ -168,3 +168,5 @@ MonoBehaviour:
   rb: {fileID: 4446957094777688599}
   health: 10
   damage: 3
+  knockbackPow: -2
+  knockTime: 0.5
