@@ -14,7 +14,8 @@ public class PlayerMove : MonoBehaviour
     public Transform spellOrigin;
     public GameObject fireball;
     public float spellForce = 15f;
-    float fireballCasts = 0f;
+    public GameObject Shockwave;
+    
 
     public int playerHealth = 10;
     public int maxHealth;
@@ -49,12 +50,23 @@ public class PlayerMove : MonoBehaviour
         {
             if(mana >= 10)
             {
-                fireballCasts++;
+                
                 mana -= 10;
                 manaBar.SetMana(mana);
                 CastFire();
             }
             
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            if (mana >= 50)
+            {
+
+                mana -= 50;
+                manaBar.SetMana(mana);
+                CastShock();
+            }
+
         }
 
     }
@@ -70,11 +82,17 @@ public class PlayerMove : MonoBehaviour
         rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
         
     }
+    void CastShock()
+    {
+        Instantiate(Shockwave, spellOrigin.position, spellOrigin.rotation);
+       
+
+    }
     void Regen()
     {
         if (mana < maxMana)
         {
-            mana += 10;
+            mana += 20;
             manaBar.SetMana(mana);
         }
     }
