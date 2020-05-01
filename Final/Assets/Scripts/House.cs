@@ -7,6 +7,7 @@ public class House : MonoBehaviour
     public int houseHealth = 20;
     public int maxHealth;
     public HealthBar HealthBar;
+    public SoundManager SoundManager;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class House : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        SoundManager.PlaySound("hit");
         houseHealth -= damage;
         HealthBar.SetHealth(houseHealth);
         if (houseHealth <= 0)

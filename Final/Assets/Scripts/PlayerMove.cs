@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     public int mana = 100;
     public int maxMana;
     public HealthBar manaBar;
+    public SoundManager SoundManager;
 
     void Start()
     {
@@ -89,6 +90,7 @@ public class PlayerMove : MonoBehaviour
     }
     void CastFire()
     {
+        SoundManager.PlaySound("fire");
         GameObject firespell = Instantiate(fireball, spellOrigin.position, spellOrigin.rotation);
         Rigidbody2D rb = firespell.GetComponent<Rigidbody2D>();
         rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
@@ -96,6 +98,7 @@ public class PlayerMove : MonoBehaviour
     }
     void CastArcane()
     {
+        SoundManager.PlaySound("arcane");
         float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg -90f;
         GameObject arcanespell = Instantiate(ArcanePierce, spellOrigin.position, Quaternion.Euler(0,0,angle));
         Rigidbody2D rb = arcanespell.GetComponent<Rigidbody2D>();
@@ -104,6 +107,7 @@ public class PlayerMove : MonoBehaviour
     }
     void CastShock()
     {
+        SoundManager.PlaySound("zap");
         Instantiate(Shockwave, spellOrigin.position, spellOrigin.rotation);
        
 
@@ -120,6 +124,7 @@ public class PlayerMove : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        SoundManager.PlaySound("hit");
         playerHealth -= damage;
         HealthBar.SetHealth(playerHealth);
         if (playerHealth <= 0)
