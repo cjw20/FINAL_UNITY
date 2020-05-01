@@ -16,6 +16,7 @@ public class EnemyMove : MonoBehaviour
     bool knockedBack = false;
     public float knockTime = .5f;
     
+    
 
     
     
@@ -94,6 +95,7 @@ public class EnemyMove : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            
         }
     }
 

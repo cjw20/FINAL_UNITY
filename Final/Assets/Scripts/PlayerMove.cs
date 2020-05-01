@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         HealthBar.SetMaxHealth(maxHealth);
         maxMana = mana;
         manaBar.SetMaxMana(maxMana);
-        InvokeRepeating("Regen", 0f, 1f);
+        InvokeRepeating("Regen", 0f, .5f);
     }
 
     // Update is called once per frame
