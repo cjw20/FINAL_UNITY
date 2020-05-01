@@ -6,6 +6,7 @@ public class EnemyMove : MonoBehaviour
 {
     GameObject chosenTarget;
     Transform target;
+    public GameObject self;
     public float moveSpeed = 2f;
     public Rigidbody2D rb;
     public int health = 10;
@@ -27,20 +28,33 @@ public class EnemyMove : MonoBehaviour
     
     void FixedUpdate()
     {
-        if(knockedBack == false)
+        if(target != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-        }
-            
-        if(knockedBack == true)
-        {
-            knockTime -= Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, difference, knockbackPow * Time.deltaTime);
-            if (knockTime <= 0)
+            if (knockedBack == false)
             {
-                knockedBack = false;
-                knockTime = .5f;
+                transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
             }
+
+            if (knockedBack == true)
+            {
+                knockTime -= Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, difference, knockbackPow * Time.deltaTime);
+                if (knockTime <= 0)
+                {
+                    knockedBack = false;
+                    knockTime = .5f;
+                }
+            }
+        }
+        if(target == null)
+        {
+            chosenTarget = GameObject.Find("Player");
+            if(chosenTarget == null)
+            {
+                chosenTarget = self; //stay still after killing player
+            }
+            target = chosenTarget.transform;
+            
         }
         
     }

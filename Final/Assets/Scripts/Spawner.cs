@@ -17,12 +17,19 @@ public class Spawner : MonoBehaviour
     
     void SpawnA()
     {
-        spawnLoc = Random.Range(0, 5);
-        Instantiate(EnemyA, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
+        if(GameObject.Find("Player") != null)
+        {
+            spawnLoc = Random.Range(0, 5);
+            Instantiate(EnemyA, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
+        }
+       
     }
     void SpawnB()
     {
-        spawnLoc = Random.Range(0, 5);
-        Instantiate(EnemyA, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
+        if (GameObject.Find("Player") != null)
+        {
+            spawnLoc = Random.Range(0, 5);
+            Instantiate(EnemyA, spawnPoints[spawnLoc].position, spawnPoints[spawnLoc].rotation);
+        }
     }
 }

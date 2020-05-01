@@ -26,6 +26,6 @@ public class House : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        FindObjectOfType<GameManager>().EndGame();
+        //FindObjectOfType<GameManager>().EndGame();
     }
 }
