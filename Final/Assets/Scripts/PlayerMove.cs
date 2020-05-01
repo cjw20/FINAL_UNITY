@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject fireball;
     public float spellForce = 15f;
     public GameObject Shockwave;
+    public GameObject ArcanePierce;
     
 
     public int playerHealth = 10;
@@ -68,6 +69,17 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
+        if (Input.GetKeyDown("r"))
+        {
+            if (mana >= 20)
+            {
+
+                mana -= 20;
+                manaBar.SetMana(mana);
+                CastArcane();
+            }
+
+        }
 
     }
     void FixedUpdate()
@@ -81,6 +93,14 @@ public class PlayerMove : MonoBehaviour
         Rigidbody2D rb = firespell.GetComponent<Rigidbody2D>();
         rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
         
+    }
+    void CastArcane()
+    {
+        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg -90f;
+        GameObject arcanespell = Instantiate(ArcanePierce, spellOrigin.position, Quaternion.Euler(0,0,angle));
+        Rigidbody2D rb = arcanespell.GetComponent<Rigidbody2D>();
+        rb.AddForce(targetDir * spellForce, ForceMode2D.Impulse);
+
     }
     void CastShock()
     {

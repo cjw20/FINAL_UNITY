@@ -2001,6 +2001,8 @@ MonoBehaviour:
   spellForce: 6
   Shockwave: {fileID: 2740459967378145999, guid: 8baed90defec46b4bb48daea2a8ea7ac,
     type: 3}
+  ArcanePierce: {fileID: 6001839603658877750, guid: fb72f747307d9cb4684e909d1c7937ab,
+    type: 3}
   playerHealth: 10
   maxHealth: 0
   HealthBar: {fileID: 1166025283}
